@@ -7,9 +7,14 @@ import WhatsappButton from "@/components/WhatsappButton";
 
 // Mapeo de IDs de categoría a nombres de visualización
 const categoryNames: Record<string, string> = {
-  "smartwatches": "Smartwatches",
-  "accesorios": "Accesorios",
-  "gadgets": "Gadgets"
+  "relojes-caballeros": "Relojes para caballeros",
+  "relojes-dama": "Relojes de dama",
+  "audifonos-inalambricos": "Audífonos inalámbricos",
+  "carros-coleccion": "Carros de colección",
+  "motos-coleccion": "Motos de colección",
+  "cargadores-inalambricos": "Cargadores inalámbricos",
+  "smartwatches-hombres": "Relojes inteligentes hombres",
+  "smartwatches-dama": "Relojes inteligentes Dama"
 };
 
 const CategoryPage = () => {

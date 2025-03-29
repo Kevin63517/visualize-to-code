@@ -3,25 +3,60 @@ import { Link } from "react-router-dom";
 
 const categories = [
   {
-    id: "smartwatches",
-    name: "Smartwatches",
+    id: "relojes-caballeros",
+    name: "Relojes para caballeros",
     image: "/category-smartwatch.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1617043786394-ae5c9b8d0b7b?q=80&w=1470&auto=format&fit=crop",
-    description: "Relojes inteligentes de última generación"
+    description: "Elegantes relojes para el hombre moderno"
   },
   {
-    id: "accesorios",
-    name: "Accesorios",
+    id: "relojes-dama",
+    name: "Relojes de dama",
     image: "/category-accessories.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1581467655410-0321260f29b7?q=80&w=1470&auto=format&fit=crop",
-    description: "Complementa tus dispositivos electrónicos"
+    description: "Sofisticados diseños para la mujer actual"
   },
   {
-    id: "gadgets",
-    name: "Gadgets",
+    id: "audifonos-inalambricos",
+    name: "Audífonos inalámbricos",
     image: "/category-gadgets.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=1501&auto=format&fit=crop",
-    description: "Dispositivos innovadores para el día a día"
+    description: "Experiencia de sonido sin cables"
+  },
+  {
+    id: "carros-coleccion",
+    name: "Carros de colección",
+    image: "/category-gadgets.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?q=80&w=1000&auto=format&fit=crop",
+    description: "Modelos a escala de gran detalle"
+  },
+  {
+    id: "motos-coleccion",
+    name: "Motos de colección",
+    image: "/category-gadgets.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1558981403-c5f9c76492be?q=80&w=1000&auto=format&fit=crop",
+    description: "Réplicas de motocicletas legendarias"
+  },
+  {
+    id: "cargadores-inalambricos",
+    name: "Cargadores inalámbricos",
+    image: "/category-gadgets.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1603539444875-76e7684265f6?q=80&w=1000&auto=format&fit=crop",
+    description: "Carga tus dispositivos sin cables"
+  },
+  {
+    id: "smartwatches-hombres",
+    name: "Relojes inteligentes hombres",
+    image: "/category-smartwatch.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=1000&auto=format&fit=crop",
+    description: "Tecnología avanzada para tu muñeca"
+  },
+  {
+    id: "smartwatches-dama",
+    name: "Relojes inteligentes Dama",
+    image: "/category-smartwatch.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=1000&auto=format&fit=crop",
+    description: "Estilo y funcionalidad en cada momento"
   }
 ];
 
@@ -31,7 +66,7 @@ const CategoryBanner = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Nuestras Categorías</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category) => (
             <Link 
               key={category.id}
