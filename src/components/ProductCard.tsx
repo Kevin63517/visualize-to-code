@@ -1,7 +1,8 @@
 
 import { useState } from "react";
-import { ShoppingCart, Heart, Eye } from "lucide-react";
+import { ShoppingCart, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 
 interface ProductCardProps {
   id: string;
@@ -14,6 +15,19 @@ interface ProductCardProps {
 
 const ProductCard = ({ id, name, price, image, fallbackImage, category }: ProductCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addToCart } = useCart();
+  
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart({
+      id,
+      name,
+      price,
+      image,
+      fallbackImage
+    });
+  };
   
   return (
     <div 
@@ -48,14 +62,9 @@ const ProductCard = ({ id, name, price, image, fallbackImage, category }: Produc
           <button 
             className="bg-white text-black rounded-full p-2 hover:bg-gray-200 transition-colors"
             aria-label="Agregar al carrito"
+            onClick={handleAddToCart}
           >
             <ShoppingCart size={16} />
-          </button>
-          <button 
-            className="bg-white text-black rounded-full p-2 hover:bg-gray-200 transition-colors"
-            aria-label="Agregar a favoritos"
-          >
-            <Heart size={16} />
           </button>
           <Link 
             to={`/producto/${id}`}
@@ -76,6 +85,7 @@ const ProductCard = ({ id, name, price, image, fallbackImage, category }: Produc
           <button 
             className="bg-black text-white px-3 py-1 rounded-full text-sm hover:bg-gray-800 transition-colors"
             aria-label="Comprar ahora"
+            onClick={handleAddToCart}
           >
             Comprar
           </button>

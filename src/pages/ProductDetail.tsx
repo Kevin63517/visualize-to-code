@@ -1,7 +1,8 @@
 
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ChevronRight, ShoppingCart, Heart, Share2 } from "lucide-react";
+import { ChevronRight, ShoppingCart } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
 import Navbar from "@/components/Navbar";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
@@ -62,6 +63,7 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
+  const { addToCart } = useCart();
   
   // Buscar el producto por ID
   const product = products.find(p => p.id === productId);
@@ -95,6 +97,16 @@ const ProductDetail = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.images[0],
+      fallbackImage: product.fallbackImage
+    }, quantity);
   };
   
   return (
@@ -220,17 +232,14 @@ const ProductDetail = () => {
                   <p className="text-sm text-gray-500 mt-2">Disponible: {product.stock} unidades</p>
                 </div>
                 
-                {/* Botones de acción */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <button className="flex-1 bg-black text-white py-3 px-6 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors">
+                {/* Botón de acción */}
+                <div className="mb-8">
+                  <button 
+                    className="w-full bg-black text-white py-3 px-6 rounded-lg flex items-center justify-center hover:bg-gray-800 transition-colors"
+                    onClick={handleAddToCart}
+                  >
                     <ShoppingCart size={20} className="mr-2" />
                     Añadir al Carrito
-                  </button>
-                  <button className="flex items-center justify-center border border-gray-300 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                    <Heart size={20} />
-                  </button>
-                  <button className="flex items-center justify-center border border-gray-300 p-3 rounded-lg hover:bg-gray-50 transition-colors">
-                    <Share2 size={20} />
                   </button>
                 </div>
                 
