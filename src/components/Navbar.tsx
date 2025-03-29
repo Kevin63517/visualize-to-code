@@ -45,7 +45,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/6497815a-129e-46af-9fe5-9630419a7fbc.png" 
                 alt="MYTIENDACR Logo" 
-                className="h-16 object-contain mx-auto"
+                className="h-24 object-contain mx-auto" 
                 onError={(e) => {
                   e.currentTarget.src = "/placeholder-logo.png";
                   e.currentTarget.onerror = null;
